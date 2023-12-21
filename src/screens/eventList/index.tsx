@@ -4,11 +4,11 @@ import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 
 import { useGetEventsQuery } from '../../services/apis/event';
 import styles from './styles';
-import { ApplicationNavigatorParamList } from "../../navigators/Application";
+import { MainNavigatorParamList } from "../../navigators/Main";
 import { Header, ListItem } from "../../components";
 
 type Props = {
-    navigation: NativeStackNavigationProp<ApplicationNavigatorParamList, 'EventList' >;  
+    navigation: NativeStackNavigationProp<MainNavigatorParamList, 'EventDetail' >;  
 };
 
 const EventList: React.FC<Props> = ({ navigation }) => {

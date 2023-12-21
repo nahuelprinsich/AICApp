@@ -1,18 +1,20 @@
 import { SafeAreaView, StatusBar, useColorScheme } from 'react-native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
-import { EventList, EventDetail } from '../screens';
+import { FavouritesList } from '../screens';
+import MainNavigator from './Main';
 
 export type ApplicationNavigatorParamList = {
-    EventList: undefined;
-    EventDetail: {
+    MainNavigator: undefined;
+    FavouritesList: {
         item: any
     };
 };
 
-const Stack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator();
 
 const ApplicationNavigator = () => {
 
@@ -27,17 +29,31 @@ const ApplicationNavigator = () => {
         <SafeAreaView style={backgroundStyle}>
             <NavigationContainer>
                 <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-                <Stack.Navigator>
-                    <Stack.Screen name="EventList" component={EventList} options={{headerShown: false}}/>
-                    <Stack.Screen 
-                        name="EventDetail" 
-                        component={EventDetail} 
-                        options={{
-                            headerTitleAlign: 'center',
-                            headerTitle: 'Details'
-                        }}
-                    />
-                </Stack.Navigator>  
+                <Tab.Navigator 
+                    screenOptions={
+                        ({ route }) => ({
+                        headerShown: false,
+                        tabBarIcon: ({ focused, color, size }) => {
+                            let iconName;
+
+                            if (route.name === 'Home') {
+                            iconName = focused
+                                ? 'home'
+                                : 'home-outline';
+                            } else if (route.name === 'Favourites') {
+                                iconName = focused ? 'star' : 'star-outline';
+                            }
+
+                            return <Ionicons name={iconName} size={size} color={color} />;
+                        },
+                        tabBarActiveTintColor: '#b60035',
+                        tabBarInactiveTintColor: '#b60035',
+                        })
+                    }
+                    >
+                    <Tab.Screen name="Home" component={MainNavigator} options={{title: 'Home'}}/>
+                    <Tab.Screen name="Favourites" component={FavouritesList} options={{title: 'Favourites'}}/>
+                </Tab.Navigator> 
             </NavigationContainer>
         </SafeAreaView>
     );
