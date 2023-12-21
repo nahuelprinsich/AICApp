@@ -1,10 +1,10 @@
-import { FlatList, Pressable, Text, View } from "react-native";
+import { FlatList, View } from "react-native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 
 import { useGetEventsQuery } from '../../services/apis/event';
 import styles from './styles';
 import { ApplicationNavigatorParamList } from "../../navigators/Application";
-
+import { Header, ListItem } from "../../components";
 type Props = {
     navigation: NativeStackNavigationProp<ApplicationNavigatorParamList, 'EventList' >;  
 };
@@ -13,25 +13,24 @@ const EventList: React.FC<Props> = ({ navigation }) => {
 
     const { data } = useGetEventsQuery();
 
-    const goToDetail = () => {
-        navigation.navigate('EventDetail')
+    const goToDetail = (item: any) => {
+        navigation.navigate('EventDetail', { item })
     }
 
     return (
         <View style={styles.container}>
-            <Pressable onPress={() => goToDetail()}>
-                <Text>
-                    Go to Detail
-                </Text>
-            </Pressable>
-            {
-                data &&
-                <FlatList
-                    data={data.data}
-                    renderItem={({item}) => <Text>{ item.title }</Text>}
-                    keyExtractor={item => item.id}
-                />
-            }
+            
+            <View style={{flex: 1}}>
+                {
+                    data &&
+                    <FlatList
+                        data={data.data}
+                        renderItem={({item}) => <ListItem item={item} onPress={() => goToDetail(item)}/>}
+                        keyExtractor={item => item.id}
+                        ListHeaderComponent={<Header title="Art Institute of Chicago"/>}
+                    />
+                }
+            </View>
         </View>
     )
 

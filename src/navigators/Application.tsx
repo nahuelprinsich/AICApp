@@ -7,7 +7,9 @@ import { EventList, EventDetail } from '../screens';
 
 export type ApplicationNavigatorParamList = {
     EventList: undefined;
-    EventDetail: undefined;
+    EventDetail: {
+        item: any
+    };
 };
 
 const Stack = createNativeStackNavigator();
@@ -31,9 +33,8 @@ const ApplicationNavigator = () => {
                         name="EventDetail" 
                         component={EventDetail} 
                         options={{
-                            headerTransparent: true,
                             headerTitleAlign: 'center',
-                            headerTitle: 'Event Detail'
+                            headerTitle: 'Details'
                         }}
                     />
                 </Stack.Navigator>  
