@@ -1,6 +1,7 @@
-import { Pressable, Text, View } from "react-native";
+import { FlatList, Pressable, Text, View } from "react-native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 
+import { useGetEventsQuery } from '../../services/apis/event';
 import styles from './styles';
 import { ApplicationNavigatorParamList } from "../../navigators/Application";
 
@@ -10,16 +11,27 @@ type Props = {
 
 const EventList: React.FC<Props> = ({ navigation }) => {
 
+    const { data } = useGetEventsQuery();
+
     const goToDetail = () => {
         navigation.navigate('EventDetail')
     }
 
     return (
         <View style={styles.container}>
-            <Text>List Screen</Text>
             <Pressable onPress={() => goToDetail()}>
-                <Text>I'm pressable!</Text>
+                <Text>
+                    Go to Detail
+                </Text>
             </Pressable>
+            {
+                data &&
+                <FlatList
+                    data={data.data}
+                    renderItem={({item}) => <Text>{ item.title }</Text>}
+                    keyExtractor={item => item.id}
+                />
+            }
         </View>
     )
 
