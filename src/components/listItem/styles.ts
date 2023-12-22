@@ -25,6 +25,9 @@ const styles = StyleSheet.create({
     textContainer: {
         marginHorizontal: 5, 
         marginRight: 60
+    },
+    text: {
+        color: '#6f6f6f'
     }
 });
 

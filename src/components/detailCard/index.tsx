@@ -18,8 +18,8 @@ const DetailCard = ({item}) => {
         <View style={styles.container}>
             <View style={styles.firstViewContainer}>
                 <View style={styles.firstView}>
-                    <Text>
-                        <Text style={styles.bold}>{'Available until: '}</Text>
+                    <Text style={styles.text}>
+                        <Text style={[styles.bold, styles.text]}>{'Available until: '}</Text>
                         {new Date(item.end_date).toLocaleDateString('en-US')}
                     </Text>
                 </View>
@@ -28,8 +28,8 @@ const DetailCard = ({item}) => {
                 </View>
             </View>
             <View>
-                <Text>
-                    <Text style={styles.bold}>Description: </Text>
+                <Text style={styles.text}>
+                    <Text style={[styles.bold, styles.text]}>Description: </Text>
                     {removeHTMLTags(item.description)}
                 </Text>
             </View>

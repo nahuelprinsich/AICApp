@@ -7,7 +7,8 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     text: {
-        marginLeft: 5
+        marginLeft: 5,
+        color: '#6f6f6f'
     }
 });
 

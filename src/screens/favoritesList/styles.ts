@@ -19,7 +19,8 @@ const styles = StyleSheet.create({
     },
     text: {
         fontSize: 30, 
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        color: '#6f6f6f'
     },
     titleContainer: {
         marginTop: 10,
@@ -27,7 +28,8 @@ const styles = StyleSheet.create({
     },
     titleText: {
         fontSize: 30, 
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        color: '#6f6f6f'
     }
 });
 

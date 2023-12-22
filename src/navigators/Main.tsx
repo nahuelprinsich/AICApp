@@ -21,7 +21,8 @@ const MainNavigator = () => {
                 component={EventDetail} 
                 options={{
                     headerTitleAlign: 'center',
-                    headerTitle: 'Details'
+                    headerTitle: 'Details',
+                    headerTintColor: '#6f6f6f',
                 }}
             />
         </Stack.Navigator> 

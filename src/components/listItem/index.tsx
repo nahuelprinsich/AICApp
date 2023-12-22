@@ -40,7 +40,7 @@ const ListItem = ({ item, onPress }) => {
                     />
                 </View>
                 <View style={styles.textContainer}>
-                    <Text>
+                    <Text style={styles.text}>
                         { item.title }
                     </Text>
                 </View>

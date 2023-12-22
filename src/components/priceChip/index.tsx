@@ -6,7 +6,7 @@ const PriceChip = ({isFree}) => {
 
     return (
         <View style={isFree ? styles.free : styles.paid}>
-            <Text>
+            <Text style={styles.text}>
                 {
                     isFree ? 'Free' : 'Paid'
                 }

@@ -18,7 +18,8 @@ const styles = StyleSheet.create({
     },
     title: {
         fontSize: 25, 
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        color: '#6f6f6f'
     }
 });
 

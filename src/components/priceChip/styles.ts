@@ -10,6 +10,9 @@ const styles = StyleSheet.create({
         backgroundColor: '#DBCC95', 
         borderRadius: 20, 
         paddingHorizontal: 10
+    },
+    text: {
+        color: '#6f6f6f'
     }
 });
 

@@ -26,6 +26,9 @@ const styles = StyleSheet.create({
     secondView: {
         flex: 1, 
         alignItems: 'flex-end'
+    },
+    text: {
+        color: '#6f6f6f'
     }
 });
 
