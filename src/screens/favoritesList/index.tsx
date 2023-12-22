@@ -3,16 +3,16 @@ import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 
 import styles from './styles';
 import { MainNavigatorParamList } from "../../navigators/Main";
-import { useFavourites } from "../../hooks";
+import { useFavorites } from "../../hooks";
 import { ListItem } from "../../components";
 
 type Props = {
     navigation: NativeStackNavigationProp<MainNavigatorParamList, 'EventDetail' >;  
 };
 
-const FavouritesList: React.FC<Props> = ({ navigation }) => {
+const FavoritesList: React.FC<Props> = ({ navigation }) => {
 
-    const { favourites, addFavourites } = useFavourites();
+    const { favorites, addFavorites } = useFavorites();
 
     const goToDetail = (item: any) => {
         navigation.navigate('EventDetail', { item })
@@ -21,22 +21,22 @@ const FavouritesList: React.FC<Props> = ({ navigation }) => {
     return (
         <View style={styles.container}>
             {
-                favourites.length !== 0 ?
+                favorites.length !== 0 ?
                     <View style={styles.listContainer}>
                         <FlatList
-                            data={favourites}
+                            data={favorites}
                             renderItem={({item}) => <ListItem item={item} onPress={() => goToDetail(item)}/>}
                             keyExtractor={item => item.id}
                             ListHeaderComponent={
                                 <View style={styles.titleContainer}>
-                                    <Text style={styles.titleText}>Favourites</Text>
+                                    <Text style={styles.titleText}>Favorites</Text>
                                 </View>
                             }
                         />
                     </View>
                 :
                     <View style={styles.textContainer}>
-                        <Text style={styles.text}>You haven't added favourites yet</Text>
+                        <Text style={styles.text}>You haven't added favorites yet</Text>
                     </View>
             }
         </View>
@@ -44,4 +44,4 @@ const FavouritesList: React.FC<Props> = ({ navigation }) => {
 
 };
 
-export default FavouritesList;
+export default FavoritesList;

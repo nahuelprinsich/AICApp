@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 export type EventState = {
-  favourites: any[];
+  favorites: any[];
 };
   
 type EventPayload = {
@@ -11,20 +11,20 @@ type EventPayload = {
 const slice = createSlice({
   name: 'event',
   initialState: {
-    favourites: []
+    favorites: []
   } as EventState,
   reducers: {
-    setFavourites: (
+    setFavorites: (
         state,
-        { payload: { favourites } }: EventPayload,
+        { payload: { favorites } }: EventPayload,
       ) => {
-        if (typeof favourites !== 'undefined') {
-          state.favourites = favourites;
+        if (typeof favorites !== 'undefined') {
+          state.favorites = favorites;
         }
       },
   },
 });
 
-export const { setFavourites } = slice.actions;
+export const { setFavorites } = slice.actions;
 
 export default slice.reducer;

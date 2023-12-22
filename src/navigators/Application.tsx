@@ -4,12 +4,12 @@ import { NavigationContainer } from '@react-navigation/native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-import { FavouritesList } from '../screens';
+import { FavoritesList } from '../screens';
 import MainNavigator from './Main';
 
 export type ApplicationNavigatorParamList = {
     MainNavigator: undefined;
-    FavouritesList: {
+    FavoritesList: {
         item: any
     };
 };
@@ -40,7 +40,7 @@ const ApplicationNavigator = () => {
                             iconName = focused
                                 ? 'home'
                                 : 'home-outline';
-                            } else if (route.name === 'Favourites') {
+                            } else if (route.name === 'Favorites') {
                                 iconName = focused ? 'star' : 'star-outline';
                             }
 
@@ -52,7 +52,7 @@ const ApplicationNavigator = () => {
                     }
                     >
                     <Tab.Screen name="Home" component={MainNavigator} options={{title: 'Home'}}/>
-                    <Tab.Screen name="Favourites" component={FavouritesList} options={{title: 'Favourites'}}/>
+                    <Tab.Screen name="Favorites" component={FavoritesList} options={{title: 'Favorites'}}/>
                 </Tab.Navigator> 
             </NavigationContainer>
         </SafeAreaView>
