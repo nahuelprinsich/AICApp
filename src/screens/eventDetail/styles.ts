@@ -5,6 +5,12 @@ const styles = StyleSheet.create({
         flex: 1, 
         alignItems: 'center', 
         justifyContent: 'center'
+    },
+    buttonsContainer: {
+        flexDirection: 'row', 
+        flex: 1, 
+        alignContent: 'space-between', 
+        marginHorizontal: 20
     }
 });
 
