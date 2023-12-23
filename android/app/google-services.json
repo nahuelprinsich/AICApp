@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "164330916173",
+    "project_id": "aicapp-94d60",
+    "storage_bucket": "aicapp-94d60.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:164330916173:android:bad3e1c1f1992cf40bcf04",
+        "android_client_info": {
+          "package_name": "com.aicapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCeb6bRmj1MtZIfGrdcXlk1N1RPv71CLk0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
