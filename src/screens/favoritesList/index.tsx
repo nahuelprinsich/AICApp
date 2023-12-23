@@ -5,6 +5,7 @@ import styles from './styles';
 import { MainNavigatorParamList } from "../../navigators/Main";
 import { useFavorites } from "../../hooks";
 import { ListItem } from "../../components";
+import { EventData } from "../../services/apis/types";
 
 type Props = {
     navigation: NativeStackNavigationProp<MainNavigatorParamList, 'EventDetail' >;  
@@ -12,9 +13,9 @@ type Props = {
 
 const FavoritesList: React.FC<Props> = ({ navigation }) => {
 
-    const { favorites, addFavorites } = useFavorites();
+    const { favorites } = useFavorites();
 
-    const goToDetail = (item: any) => {
+    const goToDetail = (item: EventData) => {
         navigation.navigate('EventDetail', { item })
     }
 

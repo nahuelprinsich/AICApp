@@ -3,7 +3,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import styles from './styles';
 
-const FavoritesButton = ({isAdd, onPress} : {isAdd: boolean, onPress: () => void}) => {
+const FavoritesButton = ({ isAdd, onPress } : { isAdd: boolean, onPress: () => void }) => {
 
     return (
         <TouchableOpacity onPress={() => onPress()} style={styles.container}>

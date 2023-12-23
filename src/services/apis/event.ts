@@ -1,8 +1,5 @@
 import { api } from '../index';
-
-export type Event = {
-  data: any;
-};
+import { Event } from './types';
 
 export const eventApi = api.injectEndpoints({
   endpoints: build => ({

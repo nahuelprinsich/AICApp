@@ -6,11 +6,12 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import { FavoritesList } from '../screens';
 import MainNavigator from './Main';
+import { EventData } from '../services/apis/types';
 
 export type ApplicationNavigatorParamList = {
     MainNavigator: undefined;
     FavoritesList: {
-        item: any
+        item: EventData
     };
 };
 

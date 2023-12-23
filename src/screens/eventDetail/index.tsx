@@ -3,14 +3,15 @@ import { ScrollView, View, NativeModules } from "react-native";
 import styles from './styles';
 import { CalendarButton, DetailCard, FavoritesButton, Header } from "../../components";
 import { useFavorites } from "../../hooks";
+import { EventData } from "../../services/apis/types";
 
 const EventDetail = ({ route }) => {
 
     const { item } = route.params;
-    const { favorites, addFavorites, deleteFavorite } = useFavorites();
-    const {CalendarModule} = NativeModules;
+    const { favorites, addFavorite, deleteFavorite } = useFavorites();
+    const { CalendarModule } = NativeModules;
 
-    const isInFavorites = (item) => {
+    const isInFavorites = (item: EventData) => {
         return favorites.some((favorite) => favorite.id === item.id);
     }
 
@@ -29,7 +30,7 @@ const EventDetail = ({ route }) => {
                 <View style={styles.buttonsContainer}>
                     <FavoritesButton 
                         isAdd={!isInFavorites(item)} 
-                        onPress={isInFavorites(item) ? () => deleteFavorite(item) : () => addFavorites({favorites: [...favorites, item]})}
+                        onPress={isInFavorites(item) ? () => deleteFavorite(item.id) : () => addFavorite(item)}
                     />
                     <CalendarButton onPress={() => addToCalendar()}/>
                 </View>

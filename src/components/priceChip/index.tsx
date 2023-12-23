@@ -2,7 +2,7 @@ import { Text, View } from "react-native";
 
 import styles from './styles';
 
-const PriceChip = ({isFree}) => {
+const PriceChip = ({ isFree } : { isFree: boolean }) => {
 
     return (
         <View style={isFree ? styles.free : styles.paid}>

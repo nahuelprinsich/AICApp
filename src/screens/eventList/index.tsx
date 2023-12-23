@@ -8,7 +8,7 @@ import { MainNavigatorParamList } from "../../navigators/Main";
 import { Header, ListItem, Spinner } from "../../components";
 
 type Props = {
-    navigation: NativeStackNavigationProp<MainNavigatorParamList, 'EventDetail' >;  
+    navigation: NativeStackNavigationProp<MainNavigatorParamList, 'EventList' >;  
 };
 
 const EventList: React.FC<Props> = ({ navigation }) => {

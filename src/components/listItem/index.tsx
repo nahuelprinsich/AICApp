@@ -2,8 +2,9 @@ import { useRef } from "react";
 import { Image, Text, TouchableOpacity, View, Animated, Easing } from "react-native";
 
 import styles from './styles';
+import { EventData } from "../../services/apis/types";
 
-const ListItem = ({ item, onPress }) => {
+const ListItem = ({ item, onPress } : { item: EventData, onPress: () => void }) => {
 
     const translateY = useRef(new Animated.Value(100)).current;
 
@@ -34,9 +35,7 @@ const ListItem = ({ item, onPress }) => {
                 <View style={styles.imageContainer}>
                     <Image
                         style={styles.imageStyle}
-                        source={{
-                            uri: item.image_url,
-                        }}
+                        source={item.image_url ? { uri: item.image_url } : require('../../assets/images/Art_Institute_of_Chicago_logo.png')}
                     />
                 </View>
                 <View style={styles.textContainer}>

@@ -2,8 +2,9 @@ import { Text, View } from "react-native";
 
 import styles from './styles';
 import PriceChip from "../priceChip";
+import { EventData } from "../../services/apis/types";
 
-const DetailCard = ({item}) => {
+const DetailCard = ({ item } : { item: EventData }) => {
 
     const removeHTMLTags = (str: string) => {
         if ((str === null) || (str === '')) {

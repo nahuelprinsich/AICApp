@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 
-import { EventState, setFavorites } from '../store/event';
+import { EventState, pushFavorite, popFavorite } from '../store/event';
+import { EventData } from '../services/apis/types';
 
 export default function () {
 
@@ -10,31 +11,17 @@ export default function () {
     (state: { event: EventState }) => state.event.favorites,
   );
 
-  const addFavorites = ({ favorites }: Partial<EventState>) => {
-    dispatch(setFavorites({ favorites }));
+  const addFavorite = (item: EventData) => {
+    dispatch(pushFavorite(item));
   };
 
-  const deleteFavorite = (item) => {
-    const index = favorites.findIndex(favorite => favorite.id === item.id);
-    const length = favorites.length
-    let newfavorites;
-
-    if(index === 0) {
-        newfavorites = favorites.slice(1);
-    } else if(index === length - 1) {
-        newfavorites = favorites.slice(0, length - 1);
-    } else {
-        newfavorites = [
-        ...favorites.slice(0, index), 
-        ...favorites.slice(index + 1)
-        ]
-    }
-    addFavorites({favorites: newfavorites})
-}
+  const deleteFavorite = (id: number) => {
+    dispatch(popFavorite(id));
+  }
 
   return {
     favorites,
-    addFavorites,
+    addFavorite,
     deleteFavorite
   };
 

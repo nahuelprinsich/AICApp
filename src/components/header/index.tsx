@@ -2,7 +2,7 @@ import { Image, Text, View } from "react-native";
 
 import styles from './styles';
 
-const Header = ({imageSource, title} : {imageSource: string, title: string}) => {
+const Header = ({ imageSource, title } : { imageSource?: string, title: string }) => {
 
     return (
         <View style={styles.container}>

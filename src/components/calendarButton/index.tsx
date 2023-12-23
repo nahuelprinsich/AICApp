@@ -3,7 +3,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import styles from './styles';
 
-const CalendarButton = ({onPress} : {onPress: () => void}) => {
+const CalendarButton = ({ onPress } : { onPress: () => void }) => {
 
     return (
         <TouchableOpacity onPress={() => onPress()} style={styles.container}>

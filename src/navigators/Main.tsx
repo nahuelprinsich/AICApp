@@ -1,11 +1,12 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import { EventList, EventDetail } from '../screens';
+import { EventData } from '../services/apis/types';
 
 export type MainNavigatorParamList = {
     EventList: undefined;
     EventDetail: {
-        item: any
+        item: EventData
     };
 };
 
