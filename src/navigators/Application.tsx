@@ -11,7 +11,7 @@ import { EventData } from '../services/apis/types';
 export type ApplicationNavigatorParamList = {
     MainNavigator: undefined;
     FavoritesList: {
-        item: EventData
+        event: EventData
     };
 };
 

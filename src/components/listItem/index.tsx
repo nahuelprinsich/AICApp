@@ -4,7 +4,7 @@ import { Image, Text, TouchableOpacity, View, Animated, Easing } from "react-nat
 import styles from './styles';
 import { EventData } from "../../services/apis/types";
 
-const ListItem = ({ item, onPress } : { item: EventData, onPress: () => void }) => {
+const ListItem = ({ event, onPress } : { event: EventData, onPress: () => void }) => {
 
     const translateY = useRef(new Animated.Value(100)).current;
 
@@ -35,12 +35,12 @@ const ListItem = ({ item, onPress } : { item: EventData, onPress: () => void }) 
                 <View style={styles.imageContainer}>
                     <Image
                         style={styles.imageStyle}
-                        source={item.image_url ? { uri: item.image_url } : require('../../assets/images/Art_Institute_of_Chicago_logo.png')}
+                        source={event.image_url ? { uri: event.image_url } : require('../../assets/images/Art_Institute_of_Chicago_logo.png')}
                     />
                 </View>
                 <View style={styles.textContainer}>
                     <Text style={styles.text}>
-                        { item.title }
+                        { event.title }
                     </Text>
                 </View>
             </TouchableOpacity>

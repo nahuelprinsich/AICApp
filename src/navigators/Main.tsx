@@ -6,7 +6,7 @@ import { EventData } from '../services/apis/types';
 export type MainNavigatorParamList = {
     EventList: undefined;
     EventDetail: {
-        item: EventData
+        event: EventData
     };
 };
 

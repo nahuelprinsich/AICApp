@@ -7,35 +7,35 @@ import { EventData } from "../../services/apis/types";
 
 const EventDetail = ({ route }) => {
 
-    const { item } = route.params;
+    const { event } = route.params;
     const { favorites, addFavorite, deleteFavorite } = useFavorites();
     const { CalendarModule } = NativeModules;
 
-    const isInFavorites = (item: EventData) => {
-        return favorites.some((favorite) => favorite.id === item.id);
+    const isInFavorites = (event: EventData) => {
+        return favorites.some((favorite) => favorite.id === event.id);
     }
 
     const addToCalendar = () => {
         const startDate = new Date();
-        const endDate = new Date(item.end_date);
+        const endDate = new Date(event.end_date);
         const startDateInMilliseconds = startDate.getTime();
         const endDateInMilliseconds = endDate.getTime();
-        CalendarModule.createCalendarEvent(item.title, item.location, startDateInMilliseconds, endDateInMilliseconds);
+        CalendarModule.createCalendarEvent(event.title, event.location, startDateInMilliseconds, endDateInMilliseconds);
     };
 
     return (
         <ScrollView>
             <View style={styles.container}>
-                <Header imageSource={item.image_url} title={item.title}/>
+                <Header imageSource={event.image_url} title={event.title}/>
                 <View style={styles.buttonsContainer}>
                     <FavoritesButton 
-                        isAdd={!isInFavorites(item)} 
-                        onPress={isInFavorites(item) ? () => deleteFavorite(item.id) : () => addFavorite(item)}
+                        isAdd={!isInFavorites(event)} 
+                        onPress={isInFavorites(event) ? () => deleteFavorite(event.id) : () => addFavorite(event)}
                     />
                     <CalendarButton onPress={() => addToCalendar()}/>
                 </View>
                 
-                <DetailCard item={item}/>
+                <DetailCard event={event}/>
             </View>
         </ScrollView>
     )

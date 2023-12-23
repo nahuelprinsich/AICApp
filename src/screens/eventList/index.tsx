@@ -16,8 +16,8 @@ const EventList: React.FC<Props> = ({ navigation }) => {
     const [refreshing, setRefreshing] = useState(false);
     const { data, refetch, isLoading } = useGetEventsQuery();
 
-    const goToDetail = (item: any) => {
-        navigation.navigate('EventDetail', { item })
+    const goToDetail = (event: any) => {
+        navigation.navigate('EventDetail', { event })
     }
 
     return (
@@ -30,7 +30,7 @@ const EventList: React.FC<Props> = ({ navigation }) => {
                             data &&
                             <FlatList
                                 data={data.data}
-                                renderItem={({item}) => <ListItem item={item} onPress={() => goToDetail(item)}/>}
+                                renderItem={({item}) => <ListItem event={item} onPress={() => goToDetail(item)}/>}
                                 keyExtractor={item => item.id}
                                 ListHeaderComponent={<Header title="Art Institute of Chicago"/>}
                                 refreshControl={<RefreshControl refreshing={refreshing} onRefresh={refetch} />}

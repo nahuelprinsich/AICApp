@@ -4,7 +4,7 @@ import styles from './styles';
 import PriceChip from "../priceChip";
 import { EventData } from "../../services/apis/types";
 
-const DetailCard = ({ item } : { item: EventData }) => {
+const DetailCard = ({ event } : { event: EventData }) => {
 
     const removeHTMLTags = (str: string) => {
         if ((str === null) || (str === '')) {
@@ -21,17 +21,17 @@ const DetailCard = ({ item } : { item: EventData }) => {
                 <View style={styles.firstView}>
                     <Text style={styles.text}>
                         <Text style={[styles.bold, styles.text]}>{'Available until: '}</Text>
-                        {new Date(item.end_date).toLocaleDateString('en-US')}
+                        {new Date(event.end_date).toLocaleDateString('en-US')}
                     </Text>
                 </View>
                 <View style={styles.secondView}>
-                    <PriceChip isFree={item.is_free}/>
+                    <PriceChip isFree={event.is_free}/>
                 </View>
             </View>
             <View>
                 <Text style={styles.text}>
                     <Text style={[styles.bold, styles.text]}>Description: </Text>
-                    {removeHTMLTags(item.description)}
+                    {removeHTMLTags(event.description)}
                 </Text>
             </View>
         </View>

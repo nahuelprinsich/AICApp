@@ -15,8 +15,8 @@ const FavoritesList: React.FC<Props> = ({ navigation }) => {
 
     const { favorites } = useFavorites();
 
-    const goToDetail = (item: EventData) => {
-        navigation.navigate('EventDetail', { item })
+    const goToDetail = (event: EventData) => {
+        navigation.navigate('EventDetail', { event })
     }
 
     return (
@@ -26,7 +26,7 @@ const FavoritesList: React.FC<Props> = ({ navigation }) => {
                     <View style={styles.listContainer}>
                         <FlatList
                             data={favorites}
-                            renderItem={({item}) => <ListItem item={item} onPress={() => goToDetail(item)}/>}
+                            renderItem={({item}) => <ListItem event={item} onPress={() => goToDetail(item)}/>}
                             keyExtractor={item => item.id}
                             ListHeaderComponent={
                                 <View style={styles.titleContainer}>

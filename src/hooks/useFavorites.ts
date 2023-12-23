@@ -11,8 +11,8 @@ export default function () {
     (state: { event: EventState }) => state.event.favorites,
   );
 
-  const addFavorite = (item: EventData) => {
-    dispatch(pushFavorite(item));
+  const addFavorite = (event: EventData) => {
+    dispatch(pushFavorite(event));
   };
 
   const deleteFavorite = (id: number) => {
